@@ -1,4 +1,6 @@
 import { noise_generator } from './noise.js';
+import { updateCamera } from './camera.js';
+import { setupCamera } from './camera.js';
 class NoiseScene extends Phaser.Scene
 {
     constructor ()
@@ -43,10 +45,12 @@ class NoiseScene extends Phaser.Scene
         const camera = this.cameras.main;
         camera.setZoom(1);
         this.cameras.main.setBounds();
+        this.input.addPointer(2); 
+        setupCamera(this);
     }
     update ()
     {
-       
+       updateCamera(this);
     }
 }
 
