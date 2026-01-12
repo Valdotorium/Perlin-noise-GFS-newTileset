@@ -7,6 +7,7 @@ class NoiseScene extends Phaser.Scene
     constructor ()
     {
         super({ key : 'NoiseScene', active: true});
+        this.generator = new noise_generator();
     }
     preload ()
     {
@@ -17,7 +18,7 @@ class NoiseScene extends Phaser.Scene
 
     create ()
     {
-        this.generate_new_noise();
+        this.generate_new_noise(this.generator);
 
         setupCamera(this);
         console.log(this)
@@ -30,10 +31,11 @@ class NoiseScene extends Phaser.Scene
     }
 
 
-    generate_new_noise(){
+    generate_new_noise(generator){
+        this.tilemap.destroy();
         let parameters = this.scene.get('uiscene').settings;
         console.log(parameters);
-        const generator = new noise_generator();
+        
         generator.seed(Math.floor(Math.random()*100000));
         this.tilemap = this.make.tilemap({tileWidth: 1, tileHeight: 1, width: parameters.noisewidth, height: parameters.noiseheight});
         const tileset = this.tilemap.addTilesetImage("tile");
@@ -83,6 +85,7 @@ class uiscene extends Phaser.Scene{
     }
     update (){
         this.scaletext.setText(`Scale: ${this.settings.options.scale}`, { font: '16px Courier', fill: '#00ff00' });
+        
     }
 }
 class StartScene extends Phaser.Scene{
