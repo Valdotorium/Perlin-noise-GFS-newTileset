@@ -70,7 +70,8 @@ class uiscene extends Phaser.Scene{
         this.add.text(10, 10, 'Press G to generate new noise', { font: '16px Courier', fill: '#00ff00' });
         this.add.text(10, 26, 'Press UP/DOWN to change scale', { font: '16px Courier', fill: '#00ff00' });
         this.scaletext = this.add.text(500, 26, `Scale: ${this.settings.options.scale}`, { font: '16px Courier', fill: '#00ff00' });
-        this.input.keyboard.on('keydown-G', () => {
+        let keyObject = this.input.keyboard.addKey("G", false, false);
+        keyObject.on('down', () => {
             this.scene.get('NoiseScene').generate_new_noise();
         });
         this.input.keyboard.on('keydown-UP', () => {
