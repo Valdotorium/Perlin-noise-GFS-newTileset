@@ -66,7 +66,6 @@ class uiscene extends Phaser.Scene{
     constructor ()
     {
         super({ key : 'uiscene', active: true});
-        this.tempinf = "";
         this.options = { scale: 40, octaves: 4, persistence: 0.5, lacunarity: 2 };
         this.settings = {noisewidth: 300, noiseheight: 200, seed: "000000", options: this.options};
     }

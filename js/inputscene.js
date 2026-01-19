@@ -40,11 +40,12 @@ export function setupinput(scene){
     });
 }
 export function updateinput(scene){
-    scene.text1.setText(`${scene.currentcont}`, { font: '16px Courier', fill: '#00ff00' });
+    //scene.text1.setText(`${scene.currentcont}`, { font: '16px Courier', fill: '#00ff00' });
 }
 function done(scene){
-    scene.scene.get('uiscene').tempinf = scene.currentcont;
-    
+    scene.scene.get('uiscene').updateheight = false;
+    scene.scene.get('uiscene').updateseed = false;
+    scene.scene.get('uiscene').updatewidth = false;
     scene.scene.stop('inputscene');
 }
 
