@@ -6,7 +6,7 @@ export function updateMouse(game){
         const camera = game.cameras.main;
         let pointer = game.input.activePointer;
 
-        //creating the universal game.mouse object with important state variables
+        
         game.mouse = game.input.activePointer 
         game.mouse.x = pointer.x
         game.mouse.y = pointer.y
@@ -60,7 +60,6 @@ export function touchzoom(game){
         if (pointer1.isDown&&con2==1) {
             dist1 = Math.sqrt(((pointer1.x - pointer2.x)**2)+((pointer1.y - pointer2.y)**2))
             zoomdist = dist1 - dist2
-            //const worldPoint = camera.getWorldPoint(pointer1.x, pointer1.y)
             if(Math.abs(zoomdist) > 40){zoomdist = 0}
             tempzoom = camera.zoom + camera.zoom * 0.005 * zoomdist;
             if(tempzoom < 0.3){
@@ -70,9 +69,6 @@ export function touchzoom(game){
             }
             camera.zoom = tempzoom
             camera.preRender();
-           // const camanker = camera.getWorldPoint(pointer1.x, pointer1.y);
-           // camera.scrollX -= camanker.x - worldPoint.x;
-            //camera.scrollY -= camanker.y - worldPoint.y;
         }
         if (pointer1.isDown&&con2==0){
             dist2 = Math.sqrt(((pointer1.x - pointer2.x)**2)+((pointer1.y - pointer2.y)**2))
@@ -81,13 +77,7 @@ export function touchzoom(game){
             con2 = 0
         }
     }
-    //game.mousetext.setText([
-    //    `p1down: ${game.input.pointer1.isDown}, p2down ${game.input.pointer2.isDown}`,
-    //    `zoomdist: ${zoomdist}`,
-    //    `tempzoom: ${tempzoom}`,
-    //    `tempzoom: ${tempzoom}`,
-    //    `lastactivepointer: ${game.input.activePointer.id}`,
-    //])
+    
 }
 export function setupCamera(game){
     const camera = game.cameras.main;
