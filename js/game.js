@@ -17,7 +17,7 @@ class NoiseScene extends Phaser.Scene
     preload ()
     {
         console.log("preloading noisescene")
-        this.load.image("tile", "assets/gradientTiles.png")
+        this.load.image("tile", "pixil-frame-0 18.png")
     }
 
 
